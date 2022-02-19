@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MVCAssignment.Models.Student>
+
+@{
+    ViewBag.Title = "StudentWithOverOneCourse";
+}
+
+<h1></h1>
+
+
+<table class="table table-bordered table-hover">
+    <tr style="background-color:darkred">
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            Course
+        </th>
+        <th>
+            Type
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.FirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LastName)
+    </td>
+    <td>
+        @foreach (var course in item.Courses)
+        {
+            <p>@course.Title</p>
+        }
+    </td>
+    <td>
+        @foreach (var course in item.Courses)
+        {
+            <p>@course.Type</p>
+        }
+    </td>
+
+
+</tr>
+}
+
+</table>

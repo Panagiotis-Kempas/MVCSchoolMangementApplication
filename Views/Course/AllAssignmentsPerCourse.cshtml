@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MVCAssignment.Models.Course>
+@{
+    ViewBag.Title = "AllAssignmentsPerCourse";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>All Assignments Per Course</h2>
+<br />
+<br />
+
+<table class="table table-bordered table-hover">
+    <tr style="background-color:darkred">
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stream)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Assignments)
+        </th>
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stream)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @foreach (var ass in item.Assignments)
+                {
+                    <p>@ass.Title</p>
+                }
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+
+

@@ -1,0 +1,69 @@
+﻿
+
+
+
+
+<div>
+    <h2>UNIVERSITIES</h2>
+</div>
+<br />
+    <div class="form-group">
+        <label for="country">Choose country:</label>
+        <input type="text" class="form-control" id="country">
+        <br />
+
+        <button class="btn btn-primary" >Choose</button>
+    </div>
+    
+    <br />
+    <br />
+    <br />
+    <table class="table table-hover table-bordered">
+        <thead style="background-color:darkred">
+            <tr>
+                <th>Name</th>
+                <th>Country</th>
+                
+            </tr>
+        </thead>
+        <tbody id="monitor">
+            <tr>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+  @section scripts{
+
+        <script>
+
+            $(document).ready(function () {
+                $('button').on('click', function (event) {
+                    event.preventDefault();
+                    $("#monitor").empty();
+                    var userInput = $('#country').val();
+                    $.ajax({
+                        type: 'GET',
+                        url: `http://universities.hipolabs.com/search?country=` + userInput,
+                        success: function (data) {
+
+                            $.each(data, function (i, uni) {
+                                let template = `<tr>
+                                                   <td>${uni.name}</td>
+                                                    <td>${uni.country}</td>
+                                                    
+                                                      </tr>`;
+
+                                $("#monitor").append(template);
+                            })
+                        }
+                    })
+                });
+            });
+           
+        </script>
+
+
+
+
+    }

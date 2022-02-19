@@ -1,0 +1,33 @@
+﻿<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href=@Url.Action("Index","Home") class="navbar-brand"><img height="40px" class="img-rounded navbar-collapse  " id="brand-image" src="~/Content/Images/College-Or-University-Logo-Vector.png"></a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("STUDENTS", "Index", "Student")</li>
+                <li>@Html.ActionLink("TRAINERS", "Index", "Trainer")</li>
+                <li>@Html.ActionLink("ASSIGNMENTS", "Index", "Assignment")</li>
+                <li>@Html.ActionLink("COURSES", "Index", "Course")</li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        FILTERS
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("ALL STUDENTS PER COURSE", "AllStudentsPerCourse", "Course")</li>
+                        <li>@Html.ActionLink("ALL TRAINERS PER COURSE", "AllTrainerssPerCourse", "Course")</li>
+                        <li>@Html.ActionLink("ALL ASSIGNMENTS PER COURSE", "AllAssignmentsPerCourse", "Course")</li>
+                        <li>@Html.ActionLink("ALL ASSIGNMENTS PER COURSE PER STUDENT", "AllAssignmentsPerCoursePerStudent", "Course")</li>
+                        <li>@Html.ActionLink("STUDENTS WITH MORE THAN ONE COURSE", "StudentWithOverOneCourse", "Student")</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
